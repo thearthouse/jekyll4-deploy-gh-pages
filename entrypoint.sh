@@ -17,12 +17,3 @@ echo "Building Jekyll site..."
 JEKYLL_ENV=production bundle exec jekyll build
 
 echo "Publishing..."
-
-cd ${DEST}
-echo '' > .nojekyll
-git init
-git config user.name "${GITHUB_ACTOR}"
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git add .
-git commit -m "published by GitHub Actions"
-git push --force ${REPO} master:${BRANCH}
